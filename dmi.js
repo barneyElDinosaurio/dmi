@@ -11,3 +11,19 @@ adx = 100 * rma(abs(plus - minus) / (sum == 0 ? 1 : sum), lensig)
 plot(plus, color=blue, title="+DI")
 plot(minus, color=orange, title="-DI")
 plot(adx, color=red, title="ADX")
+
+// alertcondition(true, title='12,12 -DI', message='this is alert of...-DI(min)')
+
+/*
+  ADX / adx
+  +DI / plus
+  -DI / minus
+
+  High signal
+    (8.8)-(4.2)<(1.8)-(4.2)<(1.8)-(12.12)
+  Low signal
+    (12.12)-(1.8)<(4.2)-(1.8)<(4.2)-(8.8)
+
+  Existing ref:
+    12,12 -DI(minus)
+*/
