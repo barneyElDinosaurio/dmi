@@ -2,12 +2,17 @@ study(title="My - Directional Movement Index", shorttitle="DMI")
 
 // ================================================================================
 // Default
-len = input(8, minval=1, title="1. +DI")
-lensig = input(8, title="2. +DI")
+len    = input(8, minval = 1, title  = "1. +DI")
+lensig = input(8, title  = "2. +DI")
 
-up = change(high)
+up   = change(high)
 down = -change(low)
 trur = rma(tr, len)
+// ================================================================================
+// Function
+
+
+// ================================================================================
 
 // -Plus
 plus = fixnan(100 * rma(up > down and up > 0 ? up : 0, len) / trur)
@@ -19,11 +24,16 @@ minus = fixnan(100 * rma(down > up and down > 0 ? down : 0, len) / trur)
 sum = plus + minus
 adx = 100 * rma(abs(plus - minus) / (sum == 0 ? 1 : sum), lensig)
 
-// plot(plus, color=blue, title="+DI")
-// plot(minus, color=orange, title="-DI")
-// plot(adx, color=red, title="ADX")
 
 plot(plus, color=blue, linewidth=1, title="plot +DI")
+// ================================================================================
+
+myplus(up, down, trur) =>
+    answer = fixnan(100 * rma(up > down and up > 0 ? up : 0, len) / trur)
+    answer
+
+//
+plot(myplus(up, down, trur), color=blue, title="My Trial")
 
 // ================================================================================
 // Default

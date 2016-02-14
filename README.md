@@ -9,6 +9,15 @@ https://www.tradingview.com/stock-charts-support/index.php/Directional_Movement_
 Multi chart
 https://www.tradingview.com/chart/OjvpeZh5/
 
+Function demo
+  hehe(a, b, method) =>
+    // isEqual = s == s[1]
+    ud = (a)
+    ud
+
+  plot(hehe(8, 8, plus), color=blue, title="My Trial")
+
+
 High signal
   (8.8)-(4.2) < (1.8)-(4.2) < (1.8)-(12.12)
   (+DI)-(ADX) < (ADX)-(ADX) < (ADX)-(-DI)
