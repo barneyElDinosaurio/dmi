@@ -16,9 +16,3 @@ plot(minus, color=orange, title="-DI")
 plot(adx, color=red, title="ADX")
 
 plot(plus, color=blue, title="High A1")
-
-
-// High signal
-//   (8.8)-(4.2) < (1.8)-(4.2) < (1.8)-(12.12)
-//   (+DI)-(ADX) < (ADX)-(ADX) < (ADX)-(-DI)
-

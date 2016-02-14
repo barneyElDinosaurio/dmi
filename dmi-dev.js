@@ -1,9 +1,9 @@
-study(title="My - Directional Movement Index", shorttitle="My DMI - High Signal 1/3")
+study(title="My - Directional Movement Index", shorttitle="DMI")
 
 // ================================================================================
 // Default
-len = input(8, minval=1, title="1. +DI 1/2")
-lensig = input(8, title="2. +DI 2/2")
+len = input(8, minval=1, title="1. +DI")
+lensig = input(8, title="2. +DI")
 
 up = change(high)
 down = -change(low)
@@ -23,12 +23,12 @@ adx = 100 * rma(abs(plus - minus) / (sum == 0 ? 1 : sum), lensig)
 // plot(minus, color=orange, title="-DI")
 // plot(adx, color=red, title="ADX")
 
-plot(plus, color=blue, title="plot +DI")
+plot(plus, color=blue, linewidth=1, title="plot +DI")
 
 // ================================================================================
 // Default
-len2 = input(4, minval=1, title="3. ADX 1/2")
-lensig2 = input(2, title="4. ADX 2/2")
+len2 = input(4, minval=1, title="3. ADX")
+lensig2 = input(2, title="4. ADX")
 
 up2 = change(high)
 down2 = -change(low)
@@ -44,8 +44,8 @@ minus2 = fixnan(100 * rma(down2 > up2 and down2 > 0 ? down2 : 0, len2) / trur2)
 sum2 = plus2 + minus2
 adx2 = 100 * rma(abs(plus - minus2) / (sum2 == 0 ? 1 : sum2), lensig2)
 
-plot(adx, color=red, title="plot ADX")
-plot(plus - adx, color=green, title="Hight signal - Plot: (+DI)-(ADX)")
+plot(adx, color=red, linewidth=1, title="plot ADX")
+plot(plus - adx, color=green, linewidth=3, title="Hight signal - Plot: (+DI)-(ADX)")
 
 // ================================================================================
 // High signal
