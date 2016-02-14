@@ -10,13 +10,16 @@ Multi chart
 https://www.tradingview.com/chart/OjvpeZh5/
 
 Function demo
-  hehe(a, b, method) =>
-    // isEqual = s == s[1]
-    ud = (a)
-    ud
+  - Ref
+    http://blog.tradingview.com/?p=223
 
-  plot(hehe(8, 8, plus), color=blue, title="My Trial")
+  - demo
+    hehe(a, b, method) =>
+      // isEqual = s == s[1]
+      ud = (a)
+      ud
 
+    plot(hehe(8, 8, plus), color=blue, title="My Trial")
 
 High signal
   (8.8)-(4.2) < (1.8)-(4.2) < (1.8)-(12.12)

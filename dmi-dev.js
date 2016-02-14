@@ -2,38 +2,31 @@ study(title="My - Directional Movement Index", shorttitle="DMI")
 
 // ================================================================================
 // Default
-len    = input(8, minval = 1, title  = "1. +DI")
-lensig = input(8, title  = "2. +DI")
+a1    = input(8, minval = 1, title  = "1. +DI")
+a2 = input(8, title  = "2. +DI")
 
 up   = change(high)
 down = -change(low)
-trur = rma(tr, len)
-// ================================================================================
-// Function
 
-
-// ================================================================================
-
+trur = rma(tr, a1)
 // -Plus
-plus = fixnan(100 * rma(up > down and up > 0 ? up : 0, len) / trur)
+plus = fixnan(100 * rma(up > down and up > 0 ? up : 0, a1) / trur)
 
 // - Min
-minus = fixnan(100 * rma(down > up and down > 0 ? down : 0, len) / trur)
+minus = fixnan(100 * rma(down > up and down > 0 ? down : 0, a1) / trur)
 
-// - ADX
-sum = plus + minus
-adx = 100 * rma(abs(plus - minus) / (sum == 0 ? 1 : sum), lensig)
-
-
-plot(plus, color=blue, linewidth=1, title="plot +DI")
 // ================================================================================
-
-myplus(up, down, trur) =>
-    answer = fixnan(100 * rma(up > down and up > 0 ? up : 0, len) / trur)
-    answer
-
-//
-plot(myplus(up, down, trur), color=blue, title="My Trial")
+// Function
+myplus(a1) =>
+    trur = rma(tr, a1)
+    answer = fixnan(100 * rma(up > down and up > 0 ? up : 0, a1) / trur)
+mymins(a1) =>
+    trur = rma(tr, a1)
+    answer = fixnan(100 * rma(down > up and down > 0 ? down : 0, a1) / trur)
+myadx(a1, a2) =>
+    sum = myplus(a1) - mymins(a1)
+    trur = rma(tr, a1)
+    answer = 100 * rma(abs(myplus(a1) - mymins(a1)) / (sum == 0 ? 1 : sum), a2)
 
 // ================================================================================
 // Default
@@ -42,7 +35,7 @@ lensig2 = input(2, title="4. ADX")
 
 up2 = change(high)
 down2 = -change(low)
-trur2 = rma(tr, len)
+trur2 = rma(tr, len2)
 
 // -Plus
 plus2 = fixnan(100 * rma(up2 > down2 and up2 > 0 ? up : 0, len2) / trur2)
@@ -54,8 +47,10 @@ minus2 = fixnan(100 * rma(down2 > up2 and down2 > 0 ? down2 : 0, len2) / trur2)
 sum2 = plus2 + minus2
 adx2 = 100 * rma(abs(plus - minus2) / (sum2 == 0 ? 1 : sum2), lensig2)
 
-plot(adx, color=red, linewidth=1, title="plot ADX")
-plot(plus - adx, color=green, linewidth=3, title="Hight signal - Plot: (+DI)-(ADX)")
+// Result
+plot(myplus(a1), color=blue, linewidth=1, title="plot +DI")
+// plot(adx, color=red, linewidth=1, title="plot ADX")
+// plot(myplus() - adx, color=green, linewidth=3, title="Hight signal - Plot: (+DI)-(ADX)")
 
 // ================================================================================
 // High signal
