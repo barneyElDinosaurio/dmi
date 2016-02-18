@@ -27,16 +27,16 @@ down = -change(low)
 myplus(a1) =>
     trur = rma(tr, a1)
     answer = fixnan(100 * rma(up > down and up > 0 ? up : 0, a1) / trur)
-    answer
+
 mymins(a1) =>
     trur = rma(tr, a1)
     answer = fixnan(100 * rma(down > up and down > 0 ? down : 0, a1) / trur)
-    answer
 
 mysum(a1) =>
     answer = myplus(a1) + mymins(a1)
-    answer
 
-adx = 100 * rma(abs(myplus(a3) - mymins(a3)) / (mysum(a1) == 0 ? 1 : mysum(a1)), a4)
+myadx(a1, a2) =>
+    adx = 100 * rma(abs(myplus(a1) - mymins(a1)) / (mysum(a1) == 0 ? 1 : mysum(a1)), a2)
 
-plot(adx, color=red, title="ADX")
+
+plot(myadx(a3, a4), color=red, title="ADX")
