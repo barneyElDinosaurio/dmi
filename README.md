@@ -29,3 +29,20 @@ Low signal
   (12.12)-(1.8) < (4.2)-(1.8) < (4.2)-(8.8)
   (-DI)-(ADX)   < (ADX)-(ADX) < (ADX)-(+DI)
   [gray 1]      < [gray 2]    < [gray 3]
+
+================================================================================
+#Test
+
+// Test - mins
+plot(mymins(12), color=orange, linewidth=1, title="-DI")
+
+
+// B
+plot(myadx(b1, b2), color=green, linewidth=1, title="ADX")
+plot(myadx(b3, b4), color=green, linewidth=1, title="ADX")
+plot(myadx(b1, b2) - myadx(b3, b4), color=green, linewidth=3, title="Hight signal - B: (ADX)-(ADX)")
+
+// C
+plot(myadx(c1, c2), color=red, linewidth=1, title="ADX")
+plot(mymins(c3), color=red, linewidth=1, title="-DI")
+plot(myadx(c1, c2) - mymins(c3), color=black, linewidth=3, title="Hight signal - C: (ADX)-(-DI)")/

@@ -27,32 +27,31 @@ down = -change(low)
 myplus(a1) =>
     trur = rma(tr, a1)
     answer = fixnan(100 * rma(up > down and up > 0 ? up : 0, a1) / trur)
+    answer
 mymins(a1) =>
     trur = rma(tr, a1)
     answer = fixnan(100 * rma(down > up and down > 0 ? down : 0, a1) / trur)
+    answer
 myadx(a1, a2) =>
     sum = myplus(a1) - mymins(a1)
     trur = rma(tr, a1)
     answer = 100 * rma(abs(myplus(a1) - mymins(a1)) / (sum == 0 ? 1 : sum), a2)
+    answer
 
 // ================================================================================
 // Result
+// plot(mymins(c3), color=green, linewidth=1, title="-DI") // OK
+
 
 // A
-// plot(myplus(a1), color=orange, linewidth=1, title="+DI")
-// plot(myadx(a3, a4), color=orange, linewidth=1, title="ADX")
-plot(myplus(a1) - myadx(a3, a4), color=orange, linewidth=3, title="Hight signal - A: (+DI)-(ADX)")
+// plot(myplus(a1), color=blue, linewidth=1, title="+DI") // OK
+plot(myadx(a3, a4), color=red, linewidth=1, title="ADX") // @todo
+
+plot(a3, color=black, linewidth=5, title="DEBUG 1") // @todo
+
+
+// plot(myplus(a1) - myadx(a3, a4), color=orange, linewidth=3, title="Hight signal - A: (+DI)-(ADX)")
 // plot(abs(myplus(a1) - myadx(a3, a4)), color=blue, linewidth=3, title="[ABS]Hight signal - A: (+DI)-(ADX)")
-
-// B
-// plot(myadx(b1, b2), color=green, linewidth=1, title="ADX")
-// plot(myadx(b3, b4), color=green, linewidth=1, title="ADX")
-plot(myadx(b1, b2) - myadx(b3, b4), color=green, linewidth=3, title="Hight signal - B: (ADX)-(ADX)")
-
-// C
-// plot(myadx(c1, c2), color=red, linewidth=1, title="ADX")
-// plot(mymins(c3), color=red, linewidth=1, title="-DI")
-plot(myadx(c1, c2) - mymins(c3), color=black, linewidth=3, title="Hight signal - C: (ADX)-(-DI)")
 
 // ================================================================================
 // High signal
