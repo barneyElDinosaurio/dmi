@@ -38,5 +38,6 @@ mysum(a1) =>
 myadx(a1, a2) =>
     adx = 100 * rma(abs(myplus(a1) - mymins(a1)) / (mysum(a1) == 0 ? 1 : mysum(a1)), a2)
 
-
-plot(myadx(a3, a4), color=red, title="ADX")
+// plot(myplus(a1), color=orange, linewidth=1, title="+DI: 8, 8")
+plot(myadx(a4, a3), color=orange, linewidth=1, title="ADX: 4,2")
+// plot(myplus(a1) - myadx(a4, a3), color=orange, linewidth=3, title="A1: (8.8)-(4.2)")
