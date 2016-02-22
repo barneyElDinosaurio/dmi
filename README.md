@@ -33,16 +33,7 @@ Low signal
 ================================================================================
 #Test
 
-// Test - mins
-plot(mymins(12), color=orange, linewidth=1, title="-DI")
-
-
-// B
-plot(myadx(b1, b2), color=green, linewidth=1, title="ADX")
-plot(myadx(b3, b4), color=green, linewidth=1, title="ADX")
-plot(myadx(b1, b2) - myadx(b3, b4), color=green, linewidth=3, title="Hight signal - B: (ADX)-(ADX)")
-
-// C
-plot(myadx(c1, c2), color=red, linewidth=1, title="ADX")
-plot(mymins(c3), color=red, linewidth=1, title="-DI")
-plot(myadx(c1, c2) - mymins(c3), color=black, linewidth=3, title="Hight signal - C: (ADX)-(-DI)")/
+compareA = 1
+compareB = 2
+plot(compareA, color=gray, title="")
+plot(compareB, color=gray, title="ADX: 1.8")
