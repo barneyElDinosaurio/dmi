@@ -44,21 +44,21 @@ myadx(a1, a2) =>
 
 // A.
 a = mymins(a1) - myadx(a4, a3)
-plot(mymins(a1), color=orange, title="-DI: 12.12")
-plot(myadx(a3, a4), color=orange, title="ADX: 1.8")
-plot(a, color=orange, linewidth=3, title="A: (12.12)-(1.8) | (-DI)-(ADX)")
+// plot(mymins(a1), color=orange, title="-DI: 12.12")
+// plot(myadx(a3, a4), color=orange, title="ADX: 1.8")
+plot(a, color=red, linewidth=3, title="A: (12.12)-(1.8) | (-DI)-(ADX)")
 
 // B.
 b = myadx(b1, b2) - myadx(b3, b4)
-plot(myadx(b1, b2), color=purple, title="ADX: 4.2")
-plot(myadx(b3, b4), color=purple, title="ADX: 1.8")
-plot(b, color=purple, linewidth=3, title="B: (4.2)-(1.8) | (ADX)-(ADX)")
+// plot(myadx(b1, b2), color=purple, title="ADX: 4.2")
+// plot(myadx(b3, b4), color=purple, title="ADX: 1.8")
+plot(b, color=red, linewidth=2, title="B: (4.2)-(1.8) | (ADX)-(ADX)")
 
 // C.
 c = myadx(c1, c2) - myplus(c3)
-plot(myadx(c1, c2), color=lime, title="ADX: 4.2")
-plot(myplus(c3), color=lime, title="+DI: 8.8")
-plot(c, color=lime, linewidth=3, title="C: (4.2)-(8.8) | (ADX)-(+DI)")
+// plot(myadx(c1, c2), color=lime, title="ADX: 4.2")
+// plot(myplus(c3), color=lime, title="+DI: 8.8")
+plot(c, color=red, linewidth=3, title="C: (4.2)-(8.8) | (ADX)-(+DI)")
 
 // Alert
 alertcondition(a < b < c, title='Alert on Low Signal: a < b < c', message='this is alert msg without index.')
