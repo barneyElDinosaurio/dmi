@@ -1,4 +1,4 @@
-study(title="My Low Signal - DMI", shorttitle="v1.2 Low Signal DMI")
+study(title="v1.2 My Low Signal - DMI", shorttitle="v1.2 Low Signal DMI")
 
 // ================================================================================
 // Default
@@ -45,21 +45,21 @@ myadx(a1, a2) =>
 
 // A.
 a = myadx(a1, a2) - mymins(a3)
-plot(a, color=orange, linewidth=1, title="A: (1.8)-(12.12) | (ADX)-(-DI)")
+// plot(a, color=orange, linewidth=1, title="A: (1.8)-(12.12) | (ADX)-(-DI)")
 
 // B.
 b = myadx(b1, b2) - myplus(b3)
-plot(b, color=orange, linewidth=3, title="B: (4.2)-(8.8) | (ADX)-(+DI)")
+// plot(b, color=orange, linewidth=3, title="B: (4.2)-(8.8) | (ADX)-(+DI)")
 
 // C.
 c = myadx(c1, c2) - myadx(c3, c4)
-plot(c, color=orange, linewidth=5, title="C: (1.8)-(4.2) | (ADX)-(ADX)")
+// plot(c, color=orange, linewidth=5, title="C: (1.8)-(4.2) | (ADX)-(ADX)")
 
 // D.
 d = myadx(d1, d2) - myadx(d3, d4)
-plot(d, color=orange, linewidth=7, title="D: (4.2)-(1.8) | (ADX)-(ADX)")
+// plot(d, color=orange, linewidth=7, title="D: (4.2)-(1.8) | (ADX)-(ADX)")
 
-setA = a - b
-setB = c - d
-plot(setA, color=gray, linewidth=1, title="alert ref index set A")
-plot(setB, color=gray, linewidth=1, title="alert ref index set B")
+// Alert
+myalert = (a - b) < (c - d) ? 1 : 0
+mycolor = (a - b) < (c - d) ? gray : red
+plot(myalert, color=mycolor, linewidth=5, title="v1.2 Low alert")
