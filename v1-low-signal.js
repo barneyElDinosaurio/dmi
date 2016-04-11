@@ -56,4 +56,4 @@ plot(c, color=orange, linewidth=3, title="C: (4.2)-(8.8) | (ADX)-(+DI)")
 
 myalert = a < b < c ? 1 : 0
 mycolor = a < b < c ? gray : red
-plot(myalert, color=mycolor, linewidth=5, title="Low alert")
+// plot(myalert, color=mycolor, linewidth=5, title="Low alert")

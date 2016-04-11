@@ -1,4 +1,4 @@
-study(title="My High ALERT- Directional Movement Index", shorttitle="High signal ALERT DMI")
+study(title="My - Directional Movement Index", shorttitle="High signal DMI")
 
 // ================================================================================
 // Default
@@ -44,17 +44,24 @@ myadx(d1, d2) =>
 
 // D. (ABS)
 d = abs(myplus(d1) - myadx(d3, d4))
-// plot(d, color=blue, linewidth=1, title="A: (8.8)-(4.2) | (+DI)-(ADX)")
+// plot(myplus(d1), color=red, title="+DI: 8.8")
+// plot(myadx(d3, d4), color=red, title="ADX: 4.2")
+plot(d, color=blue, linewidth=1, title="A: (8.8)-(4.2) | (+DI)-(ADX)")
 
 // E.
 e = myadx(e1, e2) - myadx(e3, e4)
-// plot(e, color=blue, linewidth=2, title="B: (1.8)-(4.2) | (ADX)-(ADX)")
+// plot(myadx(e1, e2), color=blue, title="ADX: 1.8")
+// plot(myadx(e3, e4), color=blue, title="ADX: 4.2")
+plot(e, color=blue, linewidth=2, title="B: (1.8)-(4.2) | (ADX)-(ADX)")
 
 // F.
 f = myadx(f1, f2) - mymins(f3)
-// plot(f, color=blue, linewidth=3, title="C: (1.8)-(12.12) | (ADX)-(-DI)")
+// plot(myadx(f1, f2), color=green, title="ADX: 1.8")
+// plot(mymins(f3), color=green, title="-DI: 12.12")
+plot(f, color=blue, linewidth=3, title="C: (1.8)-(12.12) | (ADX)-(-DI)")
 
 // Alert
 myalert = d < e < f ? 1 : 0
 mycolor = d < e < f ? gray : blue
 plot(myalert, color=mycolor, linewidth=5, title="High alert")
+
