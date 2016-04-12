@@ -43,13 +43,16 @@ mysum(d2) =>
 myadx(d1, d2) =>
     adx = 100 * rma(abs(myplus(d2) - mymins(d2)) / (mysum(d2) == 0 ? 1 : mysum(d2)), d1)
 
+// High signal
+// (1.8)-(4.2) / (ADX)-(ADX) - (4.2)-(8.8) / (ADX)-(+DI) < (1.8)-(12.12) | (ADX)-(-DI) - (4.2)-(1.8) / (ADX)-(ADX)
+
 // D. (ABS)
 d = myadx(d1, d2) - myadx(d3, d4)
 plot(d, color=blue, linewidth=1, title="A: (1.8)-(4.2) | (ADX)-(ADX)")
 
 // E.
 e = myadx(e1, e2) - myplus(e3)
-plot(e, color=blue, linewidth=3, title="B: (4.2)-(1.8) | (ADX)-(+DI)")
+plot(e, color=blue, linewidth=3, title="B: (4.2)-(8.8) | (ADX)-(+DI)")
 
 // F.
 f = myadx(f1, f2) - mymins(f3)

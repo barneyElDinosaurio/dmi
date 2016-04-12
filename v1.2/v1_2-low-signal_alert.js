@@ -1,4 +1,4 @@
-study(title="v1.2 My Low Signal - DMI", shorttitle="v1.2 Low Signal DMI")
+study(title="v1.2 ALERT  My Low Signal - DMI", shorttitle="v1.2 ALERT Low Signal DMI")
 
 // ================================================================================
 // Default
@@ -43,6 +43,9 @@ mysum(a2) =>
 myadx(a1, a2) =>
     adx = 100 * rma(abs(myplus(a2) - mymins(a2)) / (mysum(a2) == 0 ? 1 : mysum(a2)), a1)
 
+// Low signal
+// (1.8)-(12.12) / (ADX)-(-DI) - (4.2)-(8.8) / (ADX)-(+DI) < (1.8)-(4.2) / (ADX)-(ADX) - (4.2)-(1.8) | (ADX)-(ADX)
+
 // A.
 a = myadx(a1, a2) - mymins(a3)
 // plot(a, color=orange, linewidth=1, title="A: (1.8)-(12.12) | (ADX)-(-DI)")
@@ -61,5 +64,5 @@ d = myadx(d1, d2) - myadx(d3, d4)
 
 // Alert
 myalert = (a - b) < (c - d) ? 1 : 0
-mycolor = (a - b) < (c - d) ? gray : red
+mycolor = (a - b) < (c - d) ? red : gray
 plot(myalert, color=mycolor, linewidth=5, title="v1.2 Low alert")

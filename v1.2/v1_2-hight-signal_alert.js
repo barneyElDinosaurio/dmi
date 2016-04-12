@@ -43,13 +43,16 @@ mysum(d2) =>
 myadx(d1, d2) =>
     adx = 100 * rma(abs(myplus(d2) - mymins(d2)) / (mysum(d2) == 0 ? 1 : mysum(d2)), d1)
 
+// High signal
+// (1.8)-(4.2) / (ADX)-(ADX) - (4.2)-(8.8) / (ADX)-(+DI) < (1.8)-(12.12) | (ADX)-(-DI) - (4.2)-(1.8) / (ADX)-(ADX)
+
 // D. (ABS)
 d = myadx(d1, d2) - myadx(d3, d4)
 // plot(d, color=blue, linewidth=1, title="A: (1.8)-(4.2) | (ADX)-(ADX)")
 
 // E.
 e = myadx(e1, e2) - myplus(e3)
-// plot(e, color=blue, linewidth=3, title="B: (4.2)-(1.8) | (ADX)-(+DI)")
+// plot(e, color=blue, linewidth=3, title="B: (4.2)-(8.8) | (ADX)-(+DI)")
 
 // F.
 f = myadx(f1, f2) - mymins(f3)
@@ -59,13 +62,10 @@ f = myadx(f1, f2) - mymins(f3)
 g = myadx(g1, g2) - myadx(g3, g4)
 // plot(g, color=blue, linewidth=7, title="C: (4.2)-(1.8) | (ADX)-(ADX)")
 
+
 // Alert
-// setA = d - e
-// setB = f  - g
-// plot(setA, color=gray, linewidth=1, title="set A alert ref: set A < B")
-// plot(setB, color=gray, linewidth=1, title="set B alert ref: set A < B")
 myalert = (d - e) < (f - g) ? 1 : 0
-mycolor = (d - e) < (f - g) ? gray : blue
+mycolor = (d - e) < (f - g) ? blue : gray
 plot(myalert, color=mycolor, linewidth=5, title="v1.2 High alert")
 
 

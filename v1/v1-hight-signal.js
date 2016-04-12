@@ -1,4 +1,4 @@
-study(title="My High ALERT- Directional Movement Index", shorttitle="High signal ALERT DMI")
+study(title="v1 - High - Directional Movement Index", shorttitle="v1 - High Signal DMI")
 
 // ================================================================================
 // Default

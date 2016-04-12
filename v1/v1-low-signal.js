@@ -1,4 +1,4 @@
-study(title="My Low - Directional Movement Index", shorttitle="Low Signal DMI")
+study(title="v1 - Low - Directional Movement Index", shorttitle="v1 - Low Signal DMI")
 
 // ================================================================================
 // Default
@@ -44,15 +44,15 @@ myadx(a1, a2) =>
 
 // A.
 a = abs(mymins(a1) - myadx(a4, a3))
-plot(a, color=orange, linewidth=3, title="A: (12.12)-(1.8) | (-DI)-(ADX)")
+plot(a, color=orange, linewidth=1, title="A: (12.12)-(1.8) | (-DI)-(ADX)")
 
 // B.
 b = myadx(b1, b2) - myadx(b3, b4)
-plot(b, color=orange, linewidth=2, title="B: (4.2)-(1.8) | (ADX)-(ADX)")
+plot(b, color=orange, linewidth=3, title="B: (4.2)-(1.8) | (ADX)-(ADX)")
 
 // C.
 c = myadx(c1, c2) - myplus(c3)
-plot(c, color=orange, linewidth=3, title="C: (4.2)-(8.8) | (ADX)-(+DI)")
+plot(c, color=orange, linewidth=5, title="C: (4.2)-(8.8) | (ADX)-(+DI)")
 
 myalert = a < b < c ? 1 : 0
 mycolor = a < b < c ? gray : red
